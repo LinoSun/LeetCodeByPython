@@ -1,3 +1,3 @@
 # LeetCodeByPython
 
-日常算法练习
+日常算法练习简单难度
