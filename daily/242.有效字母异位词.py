@@ -12,6 +12,7 @@
 
 可以假设所有字母都是小写字母
 '''
+# 第一种解法
 class Solution:
     def isAnagram(self, s: str, t: str) -> bool:
         dic = {'a' :0 ,'b' :0 ,'c' :0 ,'d' :0 ,'e' :0 ,'f' :0 ,'g' :0,
@@ -28,6 +29,21 @@ class Solution:
 
         for v in dic.values():
             if v != 0:
+                return False
+
+        return True
+
+
+# 第二种解法
+class Solution:
+    def isAnagram(self, s: str, t: str) -> bool:
+        if len(s) != len(t):
+            return False
+
+        u = set(s)
+
+        for v in u:
+            if s.count(v) != t.count(v):
                 return False
 
         return True
