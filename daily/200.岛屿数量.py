@@ -24,15 +24,23 @@
 # 回看代码
 class Solution:
     def numIslands(self, grid: [[str]]) -> int:
+        # 竖
         m = len(grid)
         if m == 0:
             return 0
+        # 橫
         n = len(grid[0])
 
         p = set()
+
+        # 生成规模相同的网格，全是0
         flag = [[0 for i in range(n)] for j in range(m)]
+
+        # 初始化结果
         count = 0
         for i in range(m):
+
+            # 如果搜索到1，岛屿数量加1
             if grid[i][0] == "1":
                 count += 1
                 flag[i][0] = count
