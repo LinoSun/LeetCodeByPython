@@ -28,3 +28,49 @@ class Solution:
         else:
             l2.next = self.mergeTwoLists(l1, l2.next)
             return l2
+
+# 迭代法，节省空间，但是代码多
+class Solution:
+    def mergeTwoLists(self, l1: ListNode, l2: ListNode) -> ListNode:
+        if not l2:
+            return l1
+        if not l1:
+            return l2
+
+        tmp = ListNode(0)
+        res = tmp
+        # 两个判断之后说明l1,l2都不为空
+        while l1 and l2:
+            if l1.val < l2.val:
+                tmp.next = l1
+                l1 = l1.next
+            else:
+                tmp.next = l2
+                l2 = l2.next
+            tmp = tmp.next
+
+        # l1或者l2出现空
+        tmp.next = l1 if l2 is None else l2
+
+        return res.next
+
+# 尾递归法
+class Solution:
+    def mergeTwoLists(self, l1: ListNode, l2: ListNode) -> ListNode:
+        rootNode = ListNode(0)
+        node = rootNode
+        while l1 != None or l2 != None :
+            if l1 == None :
+                node.next = l2
+                break
+            if l2 == None :
+                node.next = l1
+                break
+            if l1.val < l2.val:
+                node.next = l1
+                l1 = l1.next
+            else :
+                node.next = l2
+                l2 = l2.next
+            node = node.next
+        return rootNode.next
