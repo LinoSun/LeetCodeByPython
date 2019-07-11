@@ -8,7 +8,7 @@
 解释: 连续子数组 [4,-1,2,1] 的和最大，为 6。
 '''
 
-#  review
+#  code review第一遍
 # 最简洁做法，也是状态转换点
 class Solution:
     def maxSubArray(self, nums: [int]) -> int:
