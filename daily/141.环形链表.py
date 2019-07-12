@@ -31,7 +31,6 @@ class Solution(object):
         :type head: ListNode
         :rtype: bool
         """
-        if not head:return False
         fast,low = head,head
         while fast and fast.next:
             fast = fast.next.next
